@@ -56,7 +56,7 @@ body {
 			&:last-child { margin-right: 0; }
 		}
   }
-  
+
   .get-started {
     background: royalblue;
     padding: 1.2rem 2rem;
@@ -114,7 +114,7 @@ body {
 	padding: 0.8rem;
 	background: rgba(65, 105, 225, 0.7);
 	border-radius: 50%;
-	text-align: center;
+	display: flex;
 
 	&:hover .help__tooltip-content {
 		opacity: 1;
@@ -166,6 +166,6 @@ body {
 
 @media screen and (min-width: 320px) and (max-width: 480px) {
 	main { transform: scale(0.8); }
-	
+
 	body .modes { font-size: 1.5rem; }
 }
