@@ -116,11 +116,6 @@ body {
 	border-radius: 50%;
 	display: flex;
 
-	&:hover .help__tooltip-content {
-		opacity: 1;
-		visibility: visible;
-	}
-
 	&-content {
 		opacity: 0;
 		visibility: hidden;
@@ -138,7 +133,10 @@ body {
 		z-index: 1;
 		transition: visibility 200ms, opacity 200ms ease-in-out;
 
-		h4 { margin-bottom: 0.8rem; }
+		h4 {
+			margin-bottom: 0.8rem;
+			font-weight: 500;
+		}
 
 		ul {
 			list-style: none;
@@ -162,6 +160,11 @@ body {
 		opacity: 0.6;
 		cursor: pointer;
 	}
+}
+
+.visible {
+	opacity: 1;
+	visibility: visible;
 }
 
 @media screen and (min-width: 320px) and (max-width: 480px) {
