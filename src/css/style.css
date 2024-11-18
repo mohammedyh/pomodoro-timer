@@ -107,10 +107,6 @@ body .pomodoro__state {
   border-radius: 50%;
   display: flex;
 }
-.help__tooltip:hover .help__tooltip-content {
-  opacity: 1;
-  visibility: visible;
-}
 .help__tooltip-content {
   opacity: 0;
   visibility: hidden;
@@ -130,6 +126,7 @@ body .pomodoro__state {
 }
 .help__tooltip-content h4 {
   margin-bottom: 0.8rem;
+  font-weight: 500;
 }
 .help__tooltip-content ul {
   list-style: none;
@@ -150,6 +147,11 @@ body .pomodoro__state {
 .help__tooltip img {
   opacity: 0.6;
   cursor: pointer;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 @media screen and (min-width: 320px) and (max-width: 480px) {
