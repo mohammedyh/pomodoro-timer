@@ -21,46 +21,51 @@ body {
   background-color: #1e2140;
   color: white;
 }
-body .main-heading {
+
+.main-heading {
   font-size: 3.2rem;
-  font-weight: 500;
+  font-weight: 400;
 }
-body main {
+
+main {
   width: 40rem;
   height: 40rem;
   border-radius: 50%;
   text-align: center;
 }
-body .modes {
+
+.modes {
   font-size: 1.8rem;
   padding: 1.6rem 1rem;
   background: #151932;
   border-radius: 10rem;
 }
-body .modes a {
+.modes a {
   margin-right: 2em;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 400;
   color: #484c67;
   transition: all 300ms ease-out;
 }
-body .modes a.active {
+.modes a.active {
   padding: 0.5em 1em;
   border-radius: 50px;
   background-color: #fa6f71;
   color: #1c2244;
 }
-body .modes a:last-child {
+.modes a:last-child {
   margin-right: 0;
 }
-body .get-started {
+
+.get-started {
   background: royalblue;
   padding: 1.2rem 2rem;
   border-radius: 0.4rem;
   font-size: 1.8rem;
   margin-top: 2rem;
 }
-body .pomodoro {
+
+.pomodoro {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -74,7 +79,7 @@ body .pomodoro {
   background: #151932;
   box-shadow: 50px 50px 82px #0e1021, -50px -50px 82px #1c2244;
 }
-body .pomodoro::before {
+.pomodoro::before {
   content: "";
   position: absolute;
   border: 10px solid royalblue;
@@ -82,11 +87,11 @@ body .pomodoro::before {
   width: 35rem;
   height: 35rem;
 }
-body .pomodoro__time {
+.pomodoro__time {
   font-size: 7rem;
-  font-weight: 500;
+  font-weight: 400;
 }
-body .pomodoro__state {
+.pomodoro__state {
   font-size: 2rem;
   margin-top: 1em;
   padding-left: 1em;
