@@ -3,6 +3,8 @@ const pomodoroState = document.querySelector('.pomodoro__state');
 const modes = document.querySelectorAll('.mode');
 const getStartedMessage = document.querySelector('.get-started');
 const sound = document.querySelector('audio');
+const helpTooltip = document.querySelector('.help__tooltip');
+const helpTooltipContent = document.querySelector('.help__tooltip-content');
 let countdown;
 
 modes.forEach(mode => mode.addEventListener('click', switchModes));
@@ -40,3 +42,12 @@ function displayTimeLeft(seconds) {
 	document.title = displayTime;
 	pomodoroTime.textContent = displayTime;
 }
+
+document.addEventListener('click', e => {
+	if (!e.target.closest('.tooltip-container')) {
+		helpTooltipContent.classList.remove('visible')
+		return
+	}
+
+	helpTooltipContent.classList.toggle('visible')
+})
