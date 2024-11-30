@@ -41,22 +41,23 @@ main {
   border-radius: 10rem;
 }
 
-.modes a {
+.mode {
   margin-right: 2em;
   text-decoration: none;
   font-weight: 400;
   color: #484c67;
+  cursor: pointer;
   transition: all 300ms ease-out;
 }
 
-.modes a.active {
+.mode.active {
   padding: 0.5em 1em;
   border-radius: 50px;
   background-color: #fa6f71;
   color: #1c2244;
 }
 
-.modes a:last-child {
+.mode:last-child {
   margin-right: 0;
 }
 
