@@ -81,7 +81,8 @@ setupActiveToggleEvents(accentColorButtons);
 
 settingsModalApplyButton.addEventListener("click", applySettings);
 
-function applySettings(event) {
+// Put into a settings.js module file
+function applySettings() {
   // Existing Modes
   const pomodoroModeTime = document.querySelector("[data-pomodoro]");
   const shortBreakModeTime = document.querySelector("[data-short-break]");
@@ -96,28 +97,77 @@ function applySettings(event) {
     "[data-accent-color].active"
   );
 
-  pomodoroModeTime.dataset.time = parseInt(pomodoroTime.value) * 60;
-  shortBreakModeTime.dataset.time = parseInt(shortBreakTime.value) * 60;
-  longBreakModeTime.dataset.time = parseInt(longBreakTime.value) * 60;
+  // Do validation here
+
+  const settings = {
+    pomodoroTime: parseInt(pomodoroTime.value) * 60,
+    shortBreakTime: parseInt(shortBreakTime.value) * 60,
+    longBreakTime: parseInt(longBreakTime.value) * 60,
+    font: selectedFont.dataset.font,
+    accentColor: selectedAccentColor.dataset.accentColor,
+  };
+
+  pomodoroModeTime.dataset.time = settings.pomodoroTime;
+  shortBreakModeTime.dataset.time = settings.shortBreakTime;
+  longBreakModeTime.dataset.time = settings.longBreakTime;
 
   document.documentElement.style.setProperty(
     "--font",
-    `var(--font-${selectedFont.dataset.font})`
+    `var(--font-${settings.font})`
   );
   document.documentElement.style.setProperty(
     "--color-accent",
-    `var(--color-${selectedAccentColor.dataset.accentColor})`
+    `var(--color-${settings.accentColor})`
   );
 
   // Save to localStorage
+  localStorage.setItem("settings", JSON.stringify(settings));
 
   settingsModalPopover.hidePopover();
 }
 
-function saveToLocalStorage() {
-  // TODO: implement function
+function loadSettingsFromLocalStorage() {
+  let settings = localStorage.getItem("settings");
+
+  if (!settings) return;
+
+  settings = JSON.parse(settings);
+  console.log(settings);
+
+  document.querySelector("[data-pomodoro]").dataset.time =
+    settings.pomodoroTime;
+  document.querySelector("[data-short-break]").dataset.time = settings.shortBreakTime;
+  document.querySelector("[data-long-break]").dataset.time = settings.longBreakTime;
+  document.documentElement.style.setProperty(
+    "--font",
+    `var(--font-${settings.font})`
+  );
+  document.documentElement.style.setProperty(
+    "--color-accent",
+    `var(--color-${settings.accentColor})`
+  );
+
+  populateSettingsForm(settings);
 }
 
-function getFromLocalStorage() {
-  // TODO: implement function
+loadSettingsFromLocalStorage();
+
+function populateSettingsForm(settings) {
+  const pomodoroTime = document.querySelector("#pomodoro");
+  const shortBreakTime = document.querySelector("#short-break");
+  const longBreakTime = document.querySelector("#long-break");
+
+  pomodoroTime.value = parseInt(settings.pomodoroTime) / 60;
+  shortBreakTime.value = parseInt(settings.shortBreakTime) / 60;
+  longBreakTime.value = parseInt(settings.longBreakTime) / 60;
+
+  fontButtons.forEach((button) => button.classList.remove("active"));
+  Array.from(fontButtons)
+    .find((button) => button.classList.contains(`font-${settings.font}`))
+    .classList.add("active");
+
+  accentColorButtons.forEach((button) => button.classList.remove("active"));
+  Array.from(accentColorButtons)
+    .find((button) => button.classList.contains(`bg-${settings.accentColor}`))
+    .classList.add("active");
 }
