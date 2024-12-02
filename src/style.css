@@ -1,3 +1,16 @@
+:root {
+  --font: var(--font-sans-serif);
+  --color-accent: var(--color-red);
+
+  --font-sans-serif: sans-serif;
+  --font-serif: serif;
+  --font-mono: monospace;
+
+  --color-red: rgb(250, 111, 113);
+  --color-cyan: rgb(112, 243, 248);
+  --color-violet: rgb(216, 129, 248);
+}
+
 *::before,
 *::after,
 * {
@@ -19,7 +32,67 @@ body {
   min-height: 90vh;
   font-family: "Poppins", sans-serif;
   background-color: #1e2140;
-  color: white;
+  color: #fff;
+}
+
+label {
+  display: block;
+}
+
+.radio-btn {
+  position: relative;
+  border: 0;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  background-color: rgb(239, 241, 250);
+  color: rgb(30, 33, 63);
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background-color 150ms ease-in-out;
+
+  &[data-font].active {
+    background-color: rgb(22, 25, 50);
+    color: #fff;
+  }
+}
+
+[data-accent-color].active {
+  &::before {
+    content: url("./check.svg");
+    position: absolute;
+    transform: translate(-50%, -40%);
+  }
+}
+
+.font-sans-serif {
+  font-family: var(--font-sans-serif);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.bg-red {
+  background-color: var(--color-red);
+}
+
+.bg-cyan {
+  background-color: var(--color-cyan);
+}
+
+.bg-violet {
+  background-color: var(--color-violet);
+}
+
+.icon {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
 }
 
 .main-heading {
@@ -53,7 +126,7 @@ main {
 .mode.active {
   padding: 0.5em 1em;
   border-radius: 50px;
-  background-color: #fa6f71;
+  background-color: var(--color-accent);
   color: #1c2244;
 }
 
@@ -104,6 +177,132 @@ main {
   padding-left: 1em;
   letter-spacing: 1em;
   text-transform: uppercase;
+}
+
+.settings-btn__wrap {
+  position: fixed;
+  top: 2.5rem;
+  right: 5.5rem;
+}
+
+.settings-btn__wrap button {
+  border: 0;
+  background-color: transparent;
+}
+
+.settings-modal__container::backdrop {
+  background: color-mix(in srgb, #020617, transparent 40%);
+}
+
+.settings-modal__container {
+  position: relative;
+  border-radius: 1.5rem;
+  margin: auto;
+  opacity: 0;
+  overflow: visible;
+  transition: opacity 200ms, transform 200ms allow-discrete;
+
+  &:popover-open {
+    opacity: 1;
+
+    @starting-style {
+      & {
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.settings-modal__header {
+  padding: 2rem 3rem;
+  border-bottom: 2px solid #eef1f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  & h3 {
+    font-size: 2.2rem;
+    font-weight: 600;
+  }
+
+  & button {
+    background-color: transparent;
+    border: 0;
+  }
+}
+
+.settings-modal__settings-wrap {
+  padding: 2rem 3rem;
+}
+
+.settings-modal__row-wrap {
+  &:not(:last-of-type) {
+    border-bottom: 2px solid #eef1f9;
+  }
+
+  &:not(:first-of-type) {
+    padding: 2rem 0;
+  }
+
+  &:first-of-type {
+    padding-bottom: 2rem;
+  }
+
+  &[class$="inline"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  & h4 {
+    font-size: 1.6rem;
+    color: #1e2140;
+  }
+
+  & input[type="number"] {
+    padding: 1rem;
+    border-radius: 8px;
+    width: 15ch;
+    border: 0;
+    background-color: #eef1f9;
+  }
+}
+
+.settings-modal__inputs-wrap {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  &[class$="--top-spacer"] {
+    margin-top: 1.5rem;
+  }
+
+  & label {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #afaeb4;
+  }
+}
+
+.settings-modal__btn {
+  position: absolute;
+  padding: 1rem 4rem;
+  border: 0;
+  background-color: var(--color-accent);
+  font: inherit;
+  font-size: 1.8rem;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 50%;
+  border-radius: 10rem;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 120ms ease-in-out;
+
+  &:hover {
+    background-color: color-mix(in srgb, var(--color-accent) 85%, #000);
+  }
 }
 
 .tooltip-container {
