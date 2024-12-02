@@ -2,7 +2,7 @@
   --font: var(--font-sans-serif);
   --color-accent: var(--color-red);
 
-  --font-sans-serif: sans-serif;
+  --font-sans-serif: "Poppins", sans-serif;
   --font-serif: serif;
   --font-mono: monospace;
 
@@ -30,7 +30,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
   min-height: 90vh;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--font);
   background-color: #1e2140;
   color: #fff;
 }
@@ -135,7 +135,7 @@ main {
 }
 
 .get-started {
-  background: royalblue;
+  background: var(--color-accent);
   padding: 1.2rem 2rem;
   border-radius: 0.4rem;
   font-size: 1.8rem;
@@ -160,7 +160,7 @@ main {
 .pomodoro::before {
   content: "";
   position: absolute;
-  border: 10px solid royalblue;
+  border: 10px solid var(--color-accent);
   border-radius: 50%;
   width: 35rem;
   height: 35rem;

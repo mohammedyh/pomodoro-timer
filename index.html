@@ -13,9 +13,9 @@
 <body>
   <h1 class="main-heading">pomodoro</h1>
   <div class="modes">
-    <a class="mode" data-time="1500">pomodoro</a>
-    <a class="mode" data-time="300">short break</a>
-    <a class="mode" data-time="900">long break</a>
+    <a class="mode" data-time="1500" data-pomodoro>pomodoro</a>
+    <a class="mode" data-time="300" data-short-break>short break</a>
+    <a class="mode" data-time="900" data-long-break>long break</a>
   </div>
 
   <div class="get-started">
@@ -74,7 +74,8 @@
       <div class="settings-modal__row-wrap settings-modal__row-wrap--inline">
         <h4>Font</h4>
         <div class="settings-modal__inputs-wrap">
-          <button class="radio-btn font-sans-serif active" type="button" data-font="sans-serif" title="sans-serif">Aa</button>
+          <button class="radio-btn font-sans-serif active" type="button" data-font="sans-serif"
+            title="sans-serif">Aa</button>
           <button class="radio-btn font-serif" type="button" data-font="serif" title="serif">Aa</button>
           <button class="radio-btn font-mono" type="button" data-font="mono" title="mono">Aa</button>
         </div>
@@ -111,7 +112,7 @@
     </article>
   </div>
 
-  <audio src="./src/sounds/short-alarm-clock-sound.mp3"></audio>
+  <audio src="src/sounds/short-alarm-clock-sound.mp3"></audio>
 
   <script src="src/index.js"></script>
 </body>

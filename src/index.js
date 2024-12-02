@@ -79,10 +79,37 @@ const setupActiveToggleEvents = (buttons) => {
 setupActiveToggleEvents(fontButtons);
 setupActiveToggleEvents(accentColorButtons);
 
-settingsModalApplyButton.addEventListener('click', applySettings)
+settingsModalApplyButton.addEventListener("click", applySettings);
 
 function applySettings(event) {
-  // TODO: store / save settings to localStorage
+  // Existing Modes
+  const pomodoroModeTime = document.querySelector("[data-pomodoro]");
+  const shortBreakModeTime = document.querySelector("[data-short-break]");
+  const longBreakModeTime = document.querySelector("[data-long-break]");
+
+  // Settings Modal Inputs
+  const pomodoroTime = document.querySelector("#pomodoro");
+  const shortBreakTime = document.querySelector("#short-break");
+  const longBreakTime = document.querySelector("#long-break");
+  const selectedFont = document.querySelector("[data-font].active");
+  const selectedAccentColor = document.querySelector(
+    "[data-accent-color].active"
+  );
+
+  pomodoroModeTime.dataset.time = parseInt(pomodoroTime.value) * 60;
+  shortBreakModeTime.dataset.time = parseInt(shortBreakTime.value) * 60;
+  longBreakModeTime.dataset.time = parseInt(longBreakTime.value) * 60;
+
+  document.documentElement.style.setProperty(
+    "--font",
+    `var(--font-${selectedFont.dataset.font})`
+  );
+  document.documentElement.style.setProperty(
+    "--color-accent",
+    `var(--color-${selectedAccentColor.dataset.accentColor})`
+  );
+
+  // Save to localStorage
 
   settingsModalPopover.hidePopover();
 }
