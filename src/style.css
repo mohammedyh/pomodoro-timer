@@ -271,6 +271,7 @@ main {
 .settings-modal__inputs-wrap {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 2rem;
 
   &[class$="--top-spacer"] {
@@ -378,5 +379,11 @@ main {
 
   body .modes {
     font-size: 1.5rem;
+  }
+
+  .settings-btn__wrap {
+    top: unset;
+    left: 1.5rem;
+    bottom: 1.5rem;
   }
 }
