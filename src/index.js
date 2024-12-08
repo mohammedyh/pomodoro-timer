@@ -60,6 +60,7 @@ document.addEventListener("click", (e) => {
 });
 
 document.addEventListener("keyup", (e) => {
+  if (e.target.localName === "input") return;
   if (e.key === "s") settingsModalPopover.togglePopover();
 });
 

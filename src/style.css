@@ -390,4 +390,8 @@ main {
     left: 1.5rem;
     bottom: 1.5rem;
   }
+
+  .settings-modal__row-wrap input[type="number"] {
+    width: 10ch;
+  }
 }
