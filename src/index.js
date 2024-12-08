@@ -96,8 +96,11 @@ function applySettings() {
   const selectedAccentColor = document.querySelector(
     "[data-accent-color].active"
   );
+  const timeInputs = [pomodoroTime, shortBreakTime, longBreakTime]
 
-  // Do validation here
+  if (timeInputs.some(input => !input.checkValidity())) {
+    return timeInputs.forEach(input => input.reportValidity());
+  }
 
   const settings = {
     pomodoroTime: parseInt(pomodoroTime.value) * 60,
@@ -120,9 +123,7 @@ function applySettings() {
     `var(--color-${settings.accentColor})`
   );
 
-  // Save to localStorage
   localStorage.setItem("settings", JSON.stringify(settings));
-
   settingsModalPopover.hidePopover();
 }
 
@@ -132,20 +133,12 @@ function loadSettingsFromLocalStorage() {
   if (!settings) return;
 
   settings = JSON.parse(settings);
-  console.log(settings);
 
-  document.querySelector("[data-pomodoro]").dataset.time =
-    settings.pomodoroTime;
+  document.querySelector("[data-pomodoro]").dataset.time = settings.pomodoroTime;
   document.querySelector("[data-short-break]").dataset.time = settings.shortBreakTime;
   document.querySelector("[data-long-break]").dataset.time = settings.longBreakTime;
-  document.documentElement.style.setProperty(
-    "--font",
-    `var(--font-${settings.font})`
-  );
-  document.documentElement.style.setProperty(
-    "--color-accent",
-    `var(--color-${settings.accentColor})`
-  );
+  document.documentElement.style.setProperty("--font", `var(--font-${settings.font})`);
+  document.documentElement.style.setProperty("--color-accent", `var(--color-${settings.accentColor})`);
 
   populateSettingsForm(settings);
 }
