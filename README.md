@@ -20,7 +20,6 @@ A minimal pomodoro timer created using HTML, CSS and JavaScript
 ## Technologies
 - HTML5
 - CSS3
-- Sass / SCSS
 - JavaScript (ES6)
 
 ## Inspiration
