@@ -3,8 +3,6 @@ const pomodoroState = document.querySelector(".pomodoro__state");
 const modes = document.querySelectorAll(".mode");
 const getStartedMessage = document.querySelector(".get-started");
 const sound = document.querySelector("audio");
-const helpTooltip = document.querySelector(".help__tooltip");
-const helpTooltipContent = document.querySelector(".help__tooltip-content");
 const settingsModalPopover = document.querySelector("#settings-modal");
 const settingsModalCloseBtn = document.querySelector(".settings-modal__close");
 const fontButtons = document.querySelectorAll("[data-font]");
@@ -49,15 +47,6 @@ function displayTimeLeft(seconds) {
   document.title = displayTime;
   pomodoroTime.textContent = displayTime;
 }
-
-document.addEventListener("click", (e) => {
-  if (!e.target.closest(".tooltip-container")) {
-    helpTooltipContent.classList.remove("visible");
-    return;
-  }
-
-  helpTooltipContent.classList.toggle("visible");
-});
 
 document.addEventListener("keyup", (e) => {
   if (e.target.localName === "input") return;
