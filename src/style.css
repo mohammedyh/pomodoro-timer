@@ -3,8 +3,8 @@
   --color-accent: var(--color-red);
 
   --font-sans-serif: "Poppins", sans-serif;
-  --font-serif: serif;
-  --font-mono: monospace;
+  --font-serif: "Aleo", serif;
+  --font-mono: "JetBrains Mono", monospace;
 
   --color-red: rgb(250, 111, 113);
   --color-cyan: rgb(112, 243, 248);
