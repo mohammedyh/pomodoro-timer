@@ -1,14 +1,14 @@
 # pomodoro-timer
-A minimal pomodoro timer created using HTML, CSS / SCSS and JavaScript
+A minimal pomodoro timer created using HTML, CSS and JavaScript
 
 ## Screenshots
-![Pomodoro app asking to choose a starting mode](./screenshot/starting-mode.png)
+![Pomodoro app asking to choose a starting mode](./screenshots/starting-mode.png)
 
-![Pomodoro app in use in the pomodoro mode](./screenshot/pomodoro.png)
+![Pomodoro app in use in the pomodoro mode](./screenshots/pomodoro.png)
 
-![Settings modal to customise timings, font and accent color](./screenshot/settings-modal.png)
+![Settings modal to customise timings, font and accent color](./screenshots/settings-modal.png)
 
-![Help tooltip button showing pomodoro cycles](./screenshot/help-tooltip.png)
+![Help tooltip button showing pomodoro cycles](./screenshots/help-tooltip.png)
 
 ## Features
 - Choose between pomodoro, short break and long break modes
