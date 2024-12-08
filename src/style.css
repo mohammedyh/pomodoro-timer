@@ -265,6 +265,10 @@ main {
     width: 15ch;
     border: 0;
     background-color: #eef1f9;
+
+    &:user-invalid {
+      outline: 2px solid red;
+    }
   }
 }
 
@@ -377,7 +381,7 @@ main {
     transform: scale(0.8);
   }
 
-  body .modes {
+  .modes {
     font-size: 1.5rem;
   }
 
