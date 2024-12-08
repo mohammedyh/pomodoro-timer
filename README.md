@@ -8,14 +8,11 @@ A minimal pomodoro timer created using HTML, CSS and JavaScript
 
 ![Settings modal to customise timings, font and accent color](./screenshots/settings-modal.png)
 
-![Help tooltip button showing pomodoro cycles](./screenshots/help-tooltip.png)
-
 ## Features
 - Choose between pomodoro, short break and long break modes
 - From selected mode, countdown until 0
 - Show timer progress in tab title
 - Play sound when timer finishes
-- Helper tooltip for information on app usage and pomodoro cycle order
 
 ## Technologies
 - HTML5
