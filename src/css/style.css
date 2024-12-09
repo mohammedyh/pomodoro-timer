@@ -59,7 +59,7 @@ label {
 
 [data-accent-color].active {
   &::before {
-    content: url("./check.svg");
+    content: url("../assets/check.svg");
     position: absolute;
     transform: translate(-50%, -40%);
   }
@@ -169,14 +169,6 @@ main {
 .pomodoro__time {
   font-size: 7rem;
   font-weight: 400;
-}
-
-.pomodoro__state {
-  font-size: 2rem;
-  margin-top: 1em;
-  padding-left: 1em;
-  letter-spacing: 1em;
-  text-transform: uppercase;
 }
 
 .settings-btn__wrap {
