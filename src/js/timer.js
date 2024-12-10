@@ -13,7 +13,6 @@ export function timer(seconds) {
     if (secondsLeft <= 0) {
       clearInterval(countdown);
       document.title = "Time Up!";
-      sound.currentTime = 5;
       sound.play();
     }
     displayTimeLeft(secondsLeft);
