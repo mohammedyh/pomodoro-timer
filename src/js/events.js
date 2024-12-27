@@ -4,7 +4,6 @@ import { timer } from "./timer.js";
 const modes = document.querySelectorAll(".mode");
 const getStartedMessage = document.querySelector(".get-started");
 const settingsModalPopover = document.querySelector("#settings-modal");
-const settingsModalCloseBtn = document.querySelector(".settings-modal__close");
 const settingsModalApplyButton = document.querySelector(".settings-modal__btn");
 const fontButtons = document.querySelectorAll("[data-font]");
 const accentColorButtons = document.querySelectorAll("[data-accent-color]");
@@ -20,7 +19,6 @@ export function setupEventListeners() {
   setupActiveToggleEvents(fontButtons);
   setupActiveToggleEvents(accentColorButtons);
 
-  settingsModalCloseBtn.addEventListener("click", () => settingsModalPopover.hidePopover());
   settingsModalApplyButton.addEventListener("click", handleSettingsFormSubmit);
 }
 
