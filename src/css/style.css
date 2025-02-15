@@ -190,6 +190,14 @@ main {
   overflow: visible;
   transition: opacity 200ms, transform 200ms allow-discrete;
 
+  &, &::backdrop {
+    transition:
+      display 250ms allow-discrete,
+      overlay 250ms allow-discrete,
+      opacity 250ms;
+    opacity: 0;
+  }
+
   &::backdrop {
     background: color-mix(in srgb, #020617, transparent 40%);
   }
@@ -197,10 +205,15 @@ main {
   &:popover-open {
     opacity: 1;
 
-    @starting-style {
-      & {
-        opacity: 0;
-      }
+    &::backdrop {
+      opacity: 1;
+    }
+  }
+
+  @starting-style {
+    &:popover-open,
+    &:popover-open::backdrop {
+      opacity: 0;
     }
   }
 }
